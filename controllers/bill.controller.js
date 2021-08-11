@@ -149,3 +149,44 @@ exports.getYearSalesInfo = function (req, res) {
     }
   );
 };
+
+/* Bills.aggregate(
+  [
+    {
+      $facet: {
+        todaySales: [
+          { $match: { date: { $gte: start, $lte: end } } },
+          {
+            $group: {
+              _id: null,
+              todaySales: { $sum: "$price" },
+            },
+          },
+        ],
+        monthSales: [
+          { $match: { date: { $gte: startMonth, $lte: endMonth } } },
+          {
+            $group: {
+              _id: null,
+              monthSales: { $sum: "$price" },
+            },
+          },
+        ],
+        yearSales: [
+          { $match: { date: { $gte: startYear, $lte: endYear } } },
+          {
+            $group: {
+              _id: null,
+              yearSales: { $sum: "$price" },
+            },
+          },
+        ],
+      },
+    },
+  ],
+  function (err, response) {
+    console.log("getTodaySalesInfo response");
+    console.log(response);
+    return res.send(response);
+  }
+); */
